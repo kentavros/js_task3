@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gallery</title>
+</head>
+<body>
+<h2>Gallery</h2>
+<div class="animal"></div>
+<script>
+
+    var animals =[
+        {
+            "type" : "cat",
+            "img" : "https://i.ytimg.com/vi/tntOCGkgt98/maxresdefault.jpg",
+            "content" : "Everything you need to know about how to adopt a cat, bringing your new cat home, cat health and care and more!"
+        },
+        {
+            "type" : "dog",
+            "img" : "https://media1.giphy.com/media/oDLDbBgf0dkis/200_s.gif",
+            "content" : "Find GIFs with the latest and newest hashtags! Search, discover and share your favorite Dog GIFs. The best GIFs are on GIPHY."
+        },
+        {
+            "type" : "cat",
+            "img" : "http://foolpix.net/assets/images/sets/481/21.jpg",
+            "content" : "BBC Earth decided to test a common stereotype that cats are the most selfish animals in the world."
+        },
+        {
+            "type" : "dog",
+            "img" : "https://sputnik-georgia.com/images/23400/45/234004562.jpg",
+            "content" : "A huge number of species of dogs show us the most diverse forms of the body."
+        },
+        {
+            "type" : "dog",
+            "img" : "https://icdn.lenta.ru/images/2016/07/12/14/20160712145215908/pic_7e10730c89e4cb22bdc70797be8fba49.jpg",
+            "content" : "The most amusing long-haired Chihuahua puppy lives in the Dog's shop of the northern Japanese town of Odate."
+        },
+        {
+            "type" : "cat",
+            "img" : "https://files4.adme.ru/files/news/part_124/1240715/preview-650x341-98-1460880345.jpg",
+            "content" : "Many keep domestic cats, animals mysterious and mysterious, requiring care and attention. This site contains an interesting and ..."
+        }
+    ]
+
+    var Dog = function () {
+        this.drow = function(el, animal)
+        {
+            var type = document.createElement("div");
+            var h = document.createElement("h3");
+            var content = document.createElement("div");
+            var divImg = document.createElement("div");
+            var tagImg = document.createElement("img");
+
+            tagImg.setAttribute('src', animal.img);
+            tagImg.setAttribute('width', 300);
+            tagImg.setAttribute('height', 200);
+            h.innerHTML = animal.type;
+            content.innerHTML = animal.content;
+
+            type.appendChild(h);
+            divImg.appendChild(tagImg);
+            el.appendChild(type);
+            el.appendChild(divImg);
+            el.appendChild(content);
+        }
+    }
+
+    var Cat = function () {
+        this.drow = function(el, animal)
+        {
+            var type = document.createElement("div");
+            var h = document.createElement("h3");
+            var content = document.createElement("div");
+            var divImg = document.createElement("div");
+            var tagImg = document.createElement("img");
+
+            tagImg.setAttribute('src', animal.img);
+            tagImg.setAttribute('width', '300px');
+            tagImg.setAttribute('height', '200px');
+            h.innerHTML = animal.type;
+            content.innerHTML = animal.content;
+
+            type.appendChild(h);
+            divImg.appendChild(tagImg);
+            el.appendChild(type);
+            el.appendChild(content);
+            el.appendChild(divImg);
+        }
+    }
+
+    var div = document.querySelector(".animal");
+    for (key in animals)
+    {
+        var itemDiv = document.createElement("div");
+//        itemDiv.setAttribute('width', 550);
+//        itemDiv.setAttribute('height', 550);
+//        itemDiv.style.float = 'left';
+//        itemDiv.style.width = '200';
+//        itemDiv.style.height = '250';
+        if (animals[key].type == 'dog')
+        {
+            var dog = new Dog;
+            div.appendChild(itemDiv);
+            dog.drow(itemDiv, animals[key]);
+        }
+        else if (animals[key].type == 'cat')
+        {
+            var cat = new Cat;
+            div.appendChild(itemDiv);
+            cat.drow(itemDiv, animals[key]);
+        }
+    }
+
+</script>
+</body>
+</html>
